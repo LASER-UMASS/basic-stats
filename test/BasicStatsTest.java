@@ -16,6 +16,25 @@ public class BasicStatsTest {
     }
 
     @Test
+    public void testMean() {
+      double[] numbers = {9, 11, 1, 4, 7, 21};
+      double mean = BasicStats.mean(numbers);
+      assertEquals (8.83333333333, mean, EPS);
+
+      double[] numbers2 = {9, 1, 4, 7, 21};
+      mean = BasicStats.mean(numbers2);
+      assertEquals (8.4, mean, EPS);
+
+      double[] numbers3 = {21};
+      mean = BasicStats.mean(numbers3);
+      assertEquals (21, mean, EPS);
+
+      double[] numbers5 = {20, 10};
+      mean = BasicStats.mean(numbers5);
+      assertEquals (15, mean, EPS);
+    }
+
+    @Test
     public void testMedian() {
       //Median should be 8.0 since size is even
       /* double[] numbers = {1, 4, 7, 9, 11, 21}; */

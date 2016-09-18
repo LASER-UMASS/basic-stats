@@ -45,6 +45,26 @@ public class BasicStats {
      * Compute the mode of an array of numbers.
      */
     public static double mode(double ... numbers) {
+      double mode = 0.0;
+      int modeCount = 0;
 
+      for (double num: numbers) {
+
+        int count = 0;
+
+        for (double otherNum: numbers) {
+          if (num == otherNum) {
+            count++;
+          }
+        }
+
+        if (count > modeCount) {
+          modeCount = count;
+          mode = num;
+        }
+
+      }
+
+      return mode;
     }
 }

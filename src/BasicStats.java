@@ -1,3 +1,5 @@
+import java.util.*;
+
 /**
  * A simple class to compute basic, descriptive statistics.
  */
@@ -22,7 +24,21 @@ public class BasicStats {
      * Compute the median of an array of numbers.
      */
     public static double median(double ... numbers) {
+      Arrays.sort(numbers);
 
+      int size = numbers.length;
+      double median = 0.0;
+
+      if (size > 0) {
+        if (size % 2 == 0) {
+          median = (numbers[size >> 1] + numbers[(size >> 1) - 1])/2;
+        }
+        else {
+          median = numbers[size >> 1];
+        }
+      }
+
+      return median;
     }
 
     /**

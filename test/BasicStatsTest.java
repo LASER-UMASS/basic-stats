@@ -42,6 +42,29 @@ public class BasicStatsTest {
 
     @Test
     public void testMode() {
+      //Mode should be 1 since we are taking the first mode
+      double[] numbers = {1, 4, 7, 9, 11, 21};
+      double mode   = BasicStats.mode(numbers);
+      assertEquals (1, mode, EPS);
 
+      //Mode should be 4
+      double[] numbers2 = {1, 4, 4, 7, 9, 11, 21};
+      mode   = BasicStats.mode(numbers2);
+      assertEquals (4, mode, EPS);
+
+      //Mode should be 7
+      double[] numbers3 = {4, 4, 7, 7, 7, 11, 11};
+      mode   = BasicStats.mode(numbers3);
+      assertEquals (7, mode, EPS);
+
+      //Mode should be 7
+      double[] numbers4 = {7};
+      mode   = BasicStats.mode(numbers4);
+      assertEquals (7, mode, EPS);
+
+      //Mode should be 0
+      double[] numbers5 = {};
+      mode   = BasicStats.mode(numbers5);
+      assertEquals (0, mode, EPS);
     }
 }

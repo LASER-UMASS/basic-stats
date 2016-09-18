@@ -14,4 +14,14 @@ public class BasicStatsTest {
         double mode   = BasicStats.mode(numbers);
         assertEquals (3, mode, EPS);
     }
+
+    @Test
+    public void testMedian() {
+
+    }
+
+    @Test
+    public void testMode() {
+      
+    }
 }

@@ -7,6 +7,7 @@ import javax.swing.text.JTextComponent;
 
 public class ModeView implements View {
 
+  //Instance variables
   double mode;
   JTextField jtfMode;
   String name;
@@ -35,15 +36,15 @@ public class ModeView implements View {
 	@Override
 	public JTextComponent show() {
 		return jtfMode;
-
 	}
 
-	public String getName() {
+  public String getName() {
 		return name;
 	}
 
 	public double getMode() {
 		return mode;
 	}
+
 
 }

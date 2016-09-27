@@ -30,13 +30,11 @@ public class MeanView implements View {
 
 	@Override
 	public void reset() {
-		// TODO Auto-generated method stub
 		jtfMean.setText("");
 	}
 
 	@Override
 	public JTextComponent show() {
-		// TODO Auto-generated method stub
 		return jtfMean;
 
 	}

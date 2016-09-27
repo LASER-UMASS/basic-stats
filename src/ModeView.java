@@ -5,39 +5,38 @@ import javax.swing.JTextField;
 import javax.swing.text.JTextComponent;
 
 
-public class MeanView implements View {
+public class ModeView implements View {
 
-	double mean;
-	JTextField jtfMean;
-	String name;
+  double mode;
+  JTextField jtfMode;
+  String name;
 
+  public ModeView() {
+    mode = 0;
+    jtfMode = new JTextField(5);
+    jtfMode.setEditable(false);
+    name = "Mode";
+  }
 
-	public MeanView() {
-		mean = 0;
-		jtfMean = new JTextField(5);
-		jtfMean.setEditable(false);
-		name = "Mean";
-	}
-
-	@Override
+  @Override
 	public void update(ArrayList<Double> numbers) {
-		mean = BasicStats.mean(BasicStats.getArrayDouble(numbers));
+		mode = BasicStats.mode(BasicStats.getArrayDouble(numbers));
 
     //Set text
-    jtfMean.setText("" + mean);
+    jtfMode.setText("" + mode);
 
 	}
 
 	@Override
 	public void reset() {
 		// TODO Auto-generated method stub
-		jtfMean.setText("");
+		jtfMode.setText("");
 	}
 
 	@Override
 	public JTextComponent show() {
 		// TODO Auto-generated method stub
-		return jtfMean;
+		return jtfMode;
 
 	}
 
@@ -45,8 +44,8 @@ public class MeanView implements View {
 		return name;
 	}
 
-	public double getMean() {
-		return mean;
+	public double getMode() {
+		return mode;
 	}
 
 }

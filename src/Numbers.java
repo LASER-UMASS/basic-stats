@@ -3,11 +3,11 @@ import java.util.ArrayList;
 //Model for this assignment
 public class Numbers implements Model {
 
-	ArrayList<Integer> numbers;
+	ArrayList<Double> numbers;
 	ArrayList<View> observers;
 
 	public Numbers() {
-		numbers = new ArrayList<Integer>();
+		numbers = new ArrayList<Double>();
 		observers = new ArrayList<View>();
 	}
 
@@ -28,7 +28,7 @@ public class Numbers implements Model {
 	}
 
 	@Override
-	public void update(ArrayList<Integer> information) {
+	public void update(ArrayList<Double> information) {
 		if (information.size() == 0) {
 			numbers = information;
 		}
@@ -39,11 +39,11 @@ public class Numbers implements Model {
 		updateViews();
 	}
 
-	public ArrayList<Integer> getData() {
+	public ArrayList<Double> getData() {
 		return numbers;
 	}
 
-	public void addData(Integer num) {
+	public void addData(Double num) {
 		numbers.add(num);
 
 		updateViews();

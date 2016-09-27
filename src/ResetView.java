@@ -22,7 +22,7 @@ public class ResetView implements View {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				for (Controller ctrl: controllers) {
-					ctrl.updateModels(0);
+					ctrl.updateModels(0.0);
 				}
 			}
 
@@ -30,7 +30,7 @@ public class ResetView implements View {
 	}
 
 	@Override
-	public void update(ArrayList<Integer> numbers) {
+	public void update(ArrayList<Double> numbers) {
 		// TODO Auto-generated method stub
 
 	}

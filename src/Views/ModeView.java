@@ -19,24 +19,7 @@ public class ModeView implements View {
     name = "Mode";
   }
 
-  @Override
-	public void update(ArrayList<Double> numbers) {
-		mode = BasicStats.mode(BasicStats.getArrayDouble(numbers));
 
-    //Set text
-    jtfMode.setText("" + mode);
-
-	}
-
-	@Override
-	public void reset() {
-		jtfMode.setText("");
-	}
-
-	@Override
-	public JTextComponent show() {
-		return jtfMode;
-	}
 
   public String getName() {
 		return name;
@@ -45,6 +28,25 @@ public class ModeView implements View {
 	public double getMode() {
 		return mode;
 	}
+
+  @Override
+  public void update(ArrayList<Double> numbers) {
+    mode = BasicStats.mode(BasicStats.getArrayDouble(numbers));
+
+    //Set text
+    jtfMode.setText("" + mode);
+
+  }
+
+  @Override
+  public void reset() {
+    jtfMode.setText("");
+  }
+
+  @Override
+  public JTextComponent show() {
+    return jtfMode;
+  }
 
 
 }

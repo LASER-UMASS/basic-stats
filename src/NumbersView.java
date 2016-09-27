@@ -16,10 +16,10 @@ public class NumbersView implements View {
 	}
 
 	@Override
-	public void update(ArrayList<Integer> numbers) {
+	public void update(ArrayList<Double> numbers) {
 		// TODO Auto-generated method stub
 		jtaNumbers.setText("");
-		for (Integer num: numbers) {
+		for (Double num: numbers) {
 			jtaNumbers.append(num + ",");
 		}
 

@@ -70,19 +70,29 @@ public class BasicStats {
 
     public static void bubbleSort(double[] numArray) {
 
-    int n = numArray.length;
-    double temp = 0;
+      int n = numArray.length;
+      double temp = 0;
 
-    for (int i = 0; i < n; i++) {
-        for (int j = 1; j < (n - i); j++) {
+      for (int i = 0; i < n; i++) {
+          for (int j = 1; j < (n - i); j++) {
 
-            if (numArray[j - 1] > numArray[j]) {
-                temp = numArray[j - 1];
-                numArray[j - 1] = numArray[j];
-                numArray[j] = temp;
-            }
+              if (numArray[j - 1] > numArray[j]) {
+                  temp = numArray[j - 1];
+                  numArray[j - 1] = numArray[j];
+                  numArray[j] = temp;
+              }
 
-        }
+          }
+      }
     }
-}
+
+    public static double[] getArrayDouble(ArrayList<Double> doubles) {
+  		double[] result = new double[doubles.size()];
+
+  		for (int i = 0 ; i < doubles.size(); i++) {
+  			result[i] = doubles.get(i);
+  		}
+
+  		return result;
+  	}
 }

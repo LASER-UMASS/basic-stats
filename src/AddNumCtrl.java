@@ -13,7 +13,7 @@ public class AddNumCtrl implements Controller {
 		models.add(model);
 	}
 
-	public void updateModels(Integer num) {
+	public void updateModels(Double num) {
 
 		for (Model model: models) {
 			model.addData(num);

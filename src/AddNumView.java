@@ -24,7 +24,7 @@ public class AddNumView implements View {
 			public void actionPerformed(ActionEvent e) {
 
 				for (Controller ctrl: controllers) {
-					ctrl.updateModels(Integer.parseInt(jtfNumber.getText()));
+					ctrl.updateModels(Double.parseDouble(jtfNumber.getText()));
 				}
 
 			}
@@ -33,7 +33,7 @@ public class AddNumView implements View {
 	}
 
 	@Override
-	public void update(ArrayList<Integer> numbers) {
+	public void update(ArrayList<Double> numbers) {
 		jtfNumber.setText("");
 	}
 

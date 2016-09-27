@@ -20,15 +20,8 @@ public class MeanView implements View {
 	}
 
 	@Override
-	public void update(ArrayList<Integer> numbers) {
-
-		int count = numbers.size();
-
-		double sum= 0;
-    for (Integer value : numbers) {
-        sum += value;
-    }
-    mean = sum / count;
+	public void update(ArrayList<Double> numbers) {
+		mean = BasicStats.mean(BasicStats.getArrayDouble(numbers));
 
     //Set text
     jtfMean.setText("" + mean);

@@ -24,7 +24,7 @@ public class BasicStats {
      * Compute the median of an array of numbers.
      */
     public static double median(double ... numbers) {
-      Arrays.sort(numbers);
+      bubbleSort(numbers);
 
       int size = numbers.length;
       double median = 0.0;
@@ -67,4 +67,22 @@ public class BasicStats {
 
       return mode;
     }
+
+    public static void bubbleSort(double[] numArray) {
+
+    int n = numArray.length;
+    double temp = 0;
+
+    for (int i = 0; i < n; i++) {
+        for (int j = 1; j < (n - i); j++) {
+
+            if (numArray[j - 1] > numArray[j]) {
+                temp = numArray[j - 1];
+                numArray[j - 1] = numArray[j];
+                numArray[j] = temp;
+            }
+
+        }
+    }
+}
 }

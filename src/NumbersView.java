@@ -17,7 +17,6 @@ public class NumbersView implements View {
 
 	@Override
 	public void update(ArrayList<Double> numbers) {
-		// TODO Auto-generated method stub
 		jtaNumbers.setText("");
 		for (Double num: numbers) {
 			jtaNumbers.append(num + ",");
@@ -27,19 +26,16 @@ public class NumbersView implements View {
 
 	@Override
 	public void reset() {
-		// TODO Auto-generated method stub
 		jtaNumbers.setText("");
 	}
 
 	@Override
 	public JTextComponent show() {
-		// TODO Auto-generated method stub
 		return jtaNumbers;
 	}
 
 	@Override
 	public String getName() {
-		// TODO Auto-generated method stub
 		return name;
 	}
 

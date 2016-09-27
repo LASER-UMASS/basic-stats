@@ -19,7 +19,19 @@ public class MedianView implements View {
 		name = "Median";
 	}
 
+	@Override
+	public void update(ArrayList<Double> numbers) {
+		median = BasicStats.median(BasicStats.getArrayDouble(numbers));
 
+		//Set text
+		jtfMedian.setText("" + median);
+
+	}
+
+	@Override
+	public void reset() {
+		jtfMedian.setText("");
+	}
 
 	@Override
 	public JTextComponent show() {
@@ -33,20 +45,6 @@ public class MedianView implements View {
 
 	public double getMedian() {
 		return median;
-	}
-
-	@Override
-	public void update(ArrayList<Double> numbers) {
-		median = BasicStats.median(BasicStats.getArrayDouble(numbers));
-
-		//Set text
-		jtfMedian.setText("" + median);
-
-	}
-
-	@Override
-	public void reset() {
-		jtfMedian.setText("");
 	}
 
 }

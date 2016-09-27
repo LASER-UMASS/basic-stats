@@ -39,19 +39,16 @@ public class AddNumView implements View {
 
 	@Override
 	public void reset() {
-		// TODO Auto-generated method stub
 		jtfNumber.setText("");
 	}
 
 	@Override
 	public JTextComponent show() {
-		// TODO Auto-generated method stub
 		return jtfNumber;
 	}
 
 	@Override
 	public String getName() {
-		// TODO Auto-generated method stub
 		return "Add Num View";
 	}
 

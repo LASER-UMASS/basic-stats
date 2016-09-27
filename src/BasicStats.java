@@ -68,27 +68,32 @@ public class BasicStats {
       return mode;
     }
 
+    //Helper method
     public static void bubbleSort(double[] numArray) {
 
-      int n = numArray.length;
-      double temp = 0;
+      int size = numArray.length;
+      double hold = 0;
 
-      for (int i = 0; i < n; i++) {
-          for (int j = 1; j < (n - i); j++) {
-
+      //Iterate to bubble up O(n^2)
+      for (int i = 0; i < size; i++) {
+          //Second loop
+          for (int j = 1; j < (size - j); j++) {
+              //Bubble up
               if (numArray[j - 1] > numArray[j]) {
-                  temp = numArray[j - 1];
+                  hold = numArray[j - 1];
                   numArray[j - 1] = numArray[j];
-                  numArray[j] = temp;
+                  numArray[j] = hold;
               }
 
           }
       }
     }
 
+    //Helper method
     public static double[] getArrayDouble(ArrayList<Double> doubles) {
   		double[] result = new double[doubles.size()];
 
+      //O(n) iteration to convert result
   		for (int i = 0 ; i < doubles.size(); i++) {
   			result[i] = doubles.get(i);
   		}

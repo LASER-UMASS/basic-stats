@@ -6,6 +6,7 @@ import javax.swing.text.JTextComponent;
 
 public class NumbersView implements View {
 
+	//Instance variables
 	JTextArea jtaNumbers;
 	String name;
 

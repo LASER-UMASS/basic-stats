@@ -19,19 +19,7 @@ public class MeanView implements View {
 		name = "Mean";
 	}
 
-	@Override
-	public void update(ArrayList<Double> numbers) {
-		mean = BasicStats.mean(BasicStats.getArrayDouble(numbers));
 
-    //Set text
-    jtfMean.setText("" + mean);
-
-	}
-
-	@Override
-	public void reset() {
-		jtfMean.setText("");
-	}
 
 	@Override
 	public JTextComponent show() {
@@ -45,6 +33,20 @@ public class MeanView implements View {
 
 	public double getMean() {
 		return mean;
+	}
+
+	@Override
+	public void update(ArrayList<Double> numbers) {
+		mean = BasicStats.mean(BasicStats.getArrayDouble(numbers));
+
+    //Set text
+    jtfMean.setText("" + mean);
+
+	}
+
+	@Override
+	public void reset() {
+		jtfMean.setText("");
 	}
 
 }

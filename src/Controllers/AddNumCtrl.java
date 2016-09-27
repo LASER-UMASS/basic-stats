@@ -9,10 +9,12 @@ public class AddNumCtrl implements Controller {
 		models = new ArrayList<Model>();
 	}
 
+	@Override
 	public void addModel(Model model) {
 		models.add(model);
 	}
 
+	@Override
 	public void updateModels(Double num) {
 
 		for (Model model: models) {

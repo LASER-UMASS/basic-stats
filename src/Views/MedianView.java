@@ -26,6 +26,7 @@ public class MedianView implements View {
 		return jtfMedian;
 	}
 
+	@Override
 	public String getName() {
 		return name;
 	}

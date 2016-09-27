@@ -27,6 +27,7 @@ public class MeanView implements View {
 
 	}
 
+	@Override
 	public String getName() {
 		return name;
 	}

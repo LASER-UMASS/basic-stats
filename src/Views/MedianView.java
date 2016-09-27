@@ -19,6 +19,14 @@ public class MedianView implements View {
 		name = "Median";
 	}
 
+	public String getName() {
+		return name;
+	}
+
+	public double getMedian() {
+		return median;
+	}
+
 	@Override
 	public void update(ArrayList<Double> numbers) {
 		median = BasicStats.median(BasicStats.getArrayDouble(numbers));
@@ -37,14 +45,6 @@ public class MedianView implements View {
 	public JTextComponent show() {
 		return jtfMedian;
 
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public double getMedian() {
-		return median;
 	}
 
 }

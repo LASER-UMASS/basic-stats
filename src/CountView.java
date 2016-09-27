@@ -29,13 +29,11 @@ public class CountView implements View {
 
 	@Override
 	public void reset() {
-		// TODO Auto-generated method stub
 		jtfCount.setText("");
 	}
 
 	@Override
 	public JTextComponent show() {
-		// TODO Auto-generated method stub
 		return jtfCount;
 
 	}

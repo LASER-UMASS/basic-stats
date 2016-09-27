@@ -30,13 +30,11 @@ public class MedianView implements View {
 
 	@Override
 	public void reset() {
-		// TODO Auto-generated method stub
 		jtfMedian.setText("");
 	}
 
 	@Override
 	public JTextComponent show() {
-		// TODO Auto-generated method stub
 		return jtfMedian;
 
 	}

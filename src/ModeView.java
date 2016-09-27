@@ -29,7 +29,6 @@ public class ModeView implements View {
 
 	@Override
 	public void reset() {
-		// TODO Auto-generated method stub
 		jtfMode.setText("");
 	}
 

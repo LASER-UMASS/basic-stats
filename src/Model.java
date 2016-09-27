@@ -12,6 +12,7 @@ public interface Model {
 	//addData allows for single data point to be added from any source
 	public void addData(Double data);
 
+	//returns data as ArrayList
 	public ArrayList<Double> getData();
 
 }

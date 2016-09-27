@@ -34,7 +34,6 @@ public class ModeView implements View {
 
 	@Override
 	public JTextComponent show() {
-		// TODO Auto-generated method stub
 		return jtfMode;
 
 	}

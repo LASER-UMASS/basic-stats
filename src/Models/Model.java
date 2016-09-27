@@ -1,9 +1,11 @@
 import java.util.ArrayList;
 
-
 public interface Model {
 
+	//Add observer to the model
 	public void addObserver(View view);
+
+	//Updates each view
 	public void updateViews();
 
 	//Taking an ArrayList allows for data to be read in from this kind of data structure

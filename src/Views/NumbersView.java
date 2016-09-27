@@ -17,15 +17,6 @@ public class NumbersView implements View {
 	}
 
 	@Override
-	public void update(ArrayList<Double> numbers) {
-		jtaNumbers.setText("");
-		for (Double num: numbers) {
-			jtaNumbers.append(num + ",");
-		}
-
-	}
-
-	@Override
 	public void reset() {
 		jtaNumbers.setText("");
 	}
@@ -34,6 +25,17 @@ public class NumbersView implements View {
 	public JTextComponent show() {
 		return jtaNumbers;
 	}
+
+	@Override
+	public void update(ArrayList<Double> numbers) {
+		jtaNumbers.setText("");
+		for (Double num: numbers) {
+			jtaNumbers.append(num + ",");
+		}
+
+	}
+
+
 
 	@Override
 	public String getName() {

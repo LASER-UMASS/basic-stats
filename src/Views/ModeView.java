@@ -20,7 +20,7 @@ public class ModeView implements View {
   }
 
 
-
+  @Override
   public String getName() {
 		return name;
 	}

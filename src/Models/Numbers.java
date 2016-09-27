@@ -12,32 +12,6 @@ public class Numbers implements Model {
 		observers = new ArrayList<View>();
 	}
 
-	public ArrayList<Double> getData() {
-		return numbers;
-	}
-
-	public void addData(Double num) {
-		numbers.add(num);
-
-		updateViews();
-	}
-
-	public void updateViews() {
-
-		for (View view: observers) {
-			if (numbers.size() == 0) {
-				view.reset();
-			}
-			else {
-				view.update(numbers);
-			}
-		}
-	}
-
-	public void addObserver(View view) {
-		observers.add(view);
-	}
-
 	@Override
 	public void update(ArrayList<Double> information) {
 		if (information.size() == 0) {
@@ -50,7 +24,35 @@ public class Numbers implements Model {
 		updateViews();
 	}
 
+	@Override
+	public ArrayList<Double> getData() {
+		return numbers;
+	}
 
+	@Override
+	public void addData(Double num) {
+		numbers.add(num);
+
+		updateViews();
+	}
+
+	@Override
+	public void updateViews() {
+
+		for (View view: observers) {
+			if (numbers.size() == 0) {
+				view.reset();
+			}
+			else {
+				view.update(numbers);
+			}
+		}
+	}
+
+	@Override
+	public void addObserver(View view) {
+		observers.add(view);
+	}
 
 
 }

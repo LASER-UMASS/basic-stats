@@ -15,18 +15,6 @@ public class Numbers implements Model {
 		observers.add(view);
 	}
 
-	public void updateViews() {
-
-		for (View view: observers) {
-			if (numbers.size() == 0) {
-				view.reset();
-			}
-			else {
-				view.update(numbers);
-			}
-		}
-	}
-
 	@Override
 	public void update(ArrayList<Double> information) {
 		if (information.size() == 0) {
@@ -48,5 +36,20 @@ public class Numbers implements Model {
 
 		updateViews();
 	}
+
+	public void updateViews() {
+
+		for (View view: observers) {
+			if (numbers.size() == 0) {
+				view.reset();
+			}
+			else {
+				view.update(numbers);
+			}
+		}
+	}
+
+
+
 
 }

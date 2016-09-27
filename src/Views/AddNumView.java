@@ -32,6 +32,14 @@ public class AddNumView implements View {
 		});
 	}
 
+	public void addController(Controller ctrl) {
+		controllers.add(ctrl);
+	}
+
+	public JButton getButton() {
+		return jbAdd;
+	}
+
 	@Override
 	public void update(ArrayList<Double> numbers) {
 		jtfNumber.setText("");
@@ -50,14 +58,6 @@ public class AddNumView implements View {
 	@Override
 	public String getName() {
 		return "Add Num View";
-	}
-
-	public void addController(Controller ctrl) {
-		controllers.add(ctrl);
-	}
-
-	public JButton getButton() {
-		return jbAdd;
 	}
 
 }

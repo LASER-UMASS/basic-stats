@@ -3,7 +3,7 @@
 A Java-based implementation for descriptive statistics. This
 implementation is merely intended to be used in the CS520/620 course.
 
-How to build:
+How to build (from Terminal):
 
 1. Be sure you are in the root directory with build.xml in your current directory.
 
@@ -13,7 +13,7 @@ How to build:
 
 4. Compiled java classes will be in /bin
 
-How to run:
+How to run (from Terminal):
 
 1. After typing ant, cd into /bin to run the PrettyGood.class file. "java PrettyGood". A GUI should show up
 

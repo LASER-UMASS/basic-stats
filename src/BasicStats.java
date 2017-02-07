@@ -175,15 +175,15 @@ public class BasicStats {
 
     //Helper method
     public static double[] getArrayDouble(ArrayList<Double> doubles) {
-  		double[] result = new double[doubles.size()];
+          double[] result = new double[doubles.size()];
 
-      //O(n) iteration to convert result
-  		for (int i = 0 ; i < doubles.size(); i++) {
-  			result[i] = doubles.get(i);
-  		}
+          //O(n) iteration to convert result
+          for (int i = 0 ; i < doubles.size(); i++) {
+              result[i] = doubles.get(i);
+          }
 
-  		return result;
-  	}
+          return result;
+      }
 
     //Helper method
     public static double[] doInsertionSort(double[] input){

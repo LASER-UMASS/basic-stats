@@ -18,10 +18,9 @@ How to build and run tests from the terminal:
 
 6. Whenever you want to clean up the project, run `ant clean`
 
-How to run (from Terminal):
+How to run Basic Statistics (from the terminal):
 
-1. After building the project (i.e., running `ant`), cd into the `bin`
-   directory and run: `java BasicStats`. The application's GUI should show up.
+1. After building the project (i.e., running `ant`), cd into the `bin` directory and run: `java BasicStats`. The application's GUI will show up.
 
 Program features:
 * Displayed numbers

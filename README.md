@@ -8,7 +8,7 @@ How to build and run tests from the terminal:
 
 1. Basic Statistics uses Apache Ant.  Make sure that you have Ant installed.  https://ant.apache.org/
 
-2. cd into the root directory, which contains the build.xml build file.
+2. cd into the Basic Statistics root directory, which contains the `build.xml` build file.
 
 3. Run `ant` to compile.
 

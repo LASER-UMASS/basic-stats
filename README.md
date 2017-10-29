@@ -10,7 +10,7 @@ How to build and run tests from the terminal:
 
 2. cd into the Basic Statistics root directory, which contains the `build.xml` build file.
 
-3. Run `ant` to compile.
+3. Run `ant` to compile Basic Statistics.
 
 4. Compiled java classes will be in the `bin` directory.
 

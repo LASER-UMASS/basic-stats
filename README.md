@@ -12,7 +12,7 @@ How to build and run tests from the terminal:
 
 3. Run `ant` to compile Basic Statistics.
 
-4. Compiled java classes will be in the `bin` directory.
+4. The compiled Basic Statistics class files will be in the `bin` directory.
 
 5. Run `ant test` to run all unit tests.
 

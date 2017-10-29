@@ -14,7 +14,7 @@ How to build and run tests from the terminal:
 
 4. The compiled Basic Statistics class files will be in the `bin` directory.
 
-5. Run `ant test` to run all Basic Statistics unit tests.
+5. Run `ant -lib lib/ test` to run all Basic Statistics unit tests.
 
 6. Whenever you want to clean up the project, run `ant clean`
 

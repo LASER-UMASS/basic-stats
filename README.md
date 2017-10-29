@@ -4,9 +4,9 @@ A Java-based implementation for computing statistics on a set of numbers.
 This implementation is intended to be used in software engineering courses as
 a subject software system.
 
-How to build and test (from Terminal):
+How to build and run tests from the terminal:
 
-1. Make sure that you have Ant installed.
+1. Basic Statistics uses Apache Ant.  Make sure that you have Ant installed.  https://ant.apache.org/
 
 2. cd into the root directory, which contains the build.xml build file.
 

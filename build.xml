@@ -5,11 +5,27 @@
 <!-- Clean up -->
     <target name="clean" description="Clean">
         <delete dir="bin"/>
+        <delete dir="jdoc"/>
     </target>
 
 <!-- Initialize build -->
     <target name="init">
         <mkdir dir="bin"/>
+        <mkdir dir="jdoc"/>
+    </target>
+
+<!-- Generate the documentation based on the javadoc comments -->
+    <target name="document" depends="init" description="Generate
+    documentation for all sources">
+        <javadoc defaultexcludes="yes"
+		  destdir="jdoc"
+		  author="true"
+		  version="true"
+		  access="private"
+		  use="true"
+		  windowtitle="CS520 - hw1">
+	      <fileset dir="src"/>
+	      </javadoc>
     </target>
 
 <!-- Compile the project -->

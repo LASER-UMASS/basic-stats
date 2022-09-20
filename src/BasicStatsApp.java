@@ -6,12 +6,14 @@ import java.awt.event.*;
 
 public class BasicStatsApp {
 
-		// Store all collected numbers
+    public static final String APP_TITLE = "Simple stats";
+    
+    // Store all collected numbers
     private static ArrayList<Double> data = new ArrayList<Double>();
 
     public static void main(String ... args) {
 
-		/**
+    /**
      * Create a simple GUI that includes:
      * - a text field and a button that allows the user to enter numbers.
      * - a button that allows the user to clear all entered numbers.
@@ -20,7 +22,7 @@ public class BasicStatsApp {
      */
 
     // Create the main frame of the application, and set size and position
-    JFrame jfMain = new JFrame("Simple stats");
+    JFrame jfMain = new JFrame(APP_TITLE);
     jfMain.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
     jfMain.setSize(600,400);
     jfMain.setLocationRelativeTo(null);

@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class NotSoGood {
+public class BasicStatsApp {
 
 		// Store all collected numbers
     private static ArrayList<Double> data = new ArrayList<Double>();

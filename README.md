@@ -1,23 +1,45 @@
-#Basic Statistics
+# Basic Statistics
 
-A Java-based implementation for descriptive statistics. This
-implementation is merely intended to be used in the CS520/620 course.
+Basic Statistics is a Java-based implementation for computing statistics on a set of numbers.
+This implementation is intended to be used in software engineering courses as
+a subject software system.
 
-### How to build and run (from Terminal):
+Basic Statistics uses the Apache Ant build system. **Make sure that you have [Ant](https://ant.apache.org) installed.**
 
-1. Make sure that you have Apache Ant installed. Run each ant command in the tictactoe folder, which contains the `build.xml` build file.
+#### How to build Basic Statistics and run its tests from the terminal:
 
-2. Run `ant document` to generate the javadoc (a hypertext description) for all of the java classes. Generated hypertext description will be in the `jdoc` folder. Open the `index.html` file. 
+1. Change into the Basic Statistics root directory, which contains the *build.xml* build file.
 
-3. Run `ant compile` to compile all of the java classes. Compiled classes will be in the `bin` folder.
+2. Run `ant compile` to compile Basic Statistics. The compiled class files will be in the *bin* directory.
 
-4. Run `ant test` to run all unit tests.
+4. Run `ant test` to run all Basic Statistics unit tests.
 
-### How to run (from Terminal):
+5. Run `ant clean` whenever you want to clean up the project (i.e., delete all generated files).
 
-1. After building the project (i.e., running `ant`), run the following command in the tictactoe folder:
-   `java -cp bin BasicStatsApp`
+#### How to run Basic Statistics from the terminal:
 
-### How to clean up (from Terminal):
+1. After building the project (i.e., running `ant compile`), run: `java -cp bin BasicStats`. The application's GUI will show up.
 
-1. Run `ant clean` to clean the project (i.e., delete all generated files).
+#### Program features:
+* Displays a set of entered numbers.
+* Computes the mean of the set of numbers.
+* Computes the median of the set of numbers.
+* Computes the mode of the set of numbers.
+
+## Troubleshooting
+
+#### Outdated version of JUnit
+If your system uses an outdated version of JUnit, you may encounter the following error:
+```
+[junit] junit/framework/JUnit4TestAdapterCache
+[junit] java.lang.NoClassDefFoundError: junit/framework/JUnit4TestAdapterCache
+```
+Run `ant -lib lib/ <target>` to explicitly use JUnit4, which is provided in the *lib* directory. For example, run `ant -lib lib/ test` to run all Basic Statistics unit tests.
+
+#### Java JDK not installed or misconfigured
+If a Java JDK is not installed or properly configured on your system, you may encounter the following error: 
+```
+BUILD FAILED
+build.xml:17 Unable to find a javac compiler;
+```
+Make sure that you have a JDK installed and that the JAVA_HOME environment variable is properly set.

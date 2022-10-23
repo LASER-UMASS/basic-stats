@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
+import model.BasicStatsModel;
+
 public class BasicStatsApp {
 
     public static final String APP_TITLE = "Simple stats";

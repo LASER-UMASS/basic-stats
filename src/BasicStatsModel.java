@@ -1,9 +1,16 @@
+import java.util.ArrayList;
+
+
 /**
  * The BasicStatsModel class stores a list of numbers. This class provides
  * the data representation for the MVC architecture pattern.
  */
 public class BasicStatsModel
 {
+    // Store all collected numbers
+    private ArrayList<Double> data = new ArrayList<Double>();
+    
+    
     public BasicStatsModel() {
 	super();
     }
@@ -18,7 +25,12 @@ public class BasicStatsModel
      * @exception IllegalArgumentException if the given number is null
      */
     public void addNumber(Double number) {
-	//TODO
+	// Input validation
+	if (number == null) {
+	    throw new IllegalArgumentException("The number must be non-null.");
+	}
+
+	this.data.add(number);
     }
 
     /**
@@ -27,7 +39,7 @@ public class BasicStatsModel
      * Post-condition: The list of numbers is empty.
      */
     public void reset() {
-	//TODO
+	this.data.clear();
     }
 
     /**
@@ -37,7 +49,12 @@ public class BasicStatsModel
      *         in the list of doubles in the same order
      */
     public double[] getArrayDouble() {
-	//TODO
-	return null;
+	double[] result = new double[this.data.size()];
+	
+	for (int i = 0 ; i < this.data.size(); i++) {
+	    result[i] = this.data.get(i);
+	}
+	
+	return result;
     }
 }

@@ -8,9 +8,8 @@ public class BasicStatsApp {
 
     public static final String APP_TITLE = "Simple stats";
     
-    // Store all collected numbers
-    private static ArrayList<Double> data = new ArrayList<Double>();
-
+    private static BasicStatsModel model = new BasicStatsModel();
+    
     public static void main(String ... args) {
 
     /**
@@ -57,7 +56,7 @@ public class BasicStatsApp {
         // case, if the user clicks the button.
         public void actionPerformed(ActionEvent e) {
             // Clear the ArrayList and all text fields
-            data.clear();
+            model.reset();
             jtaNumbers.setText("");
             jtfCount.setText("");
             jtfMedian.setText("");
@@ -71,19 +70,19 @@ public class BasicStatsApp {
             // Parse input and add number to the ArrayList
 
             Double num = Double.parseDouble(jtfNumber.getText());
-            data.add(num);
+            model.addNumber(num);
             jtaNumbers.append(num + ",");
 
             // Compute and set the count
-            int count = data.size();
+            int count = model.getArrayDouble().length;
             jtfCount.setText("" + count);
 
             // Compute and set the mean
-            double mean = BasicStats.mean(getArrayDouble(data));
+            double mean = BasicStats.mean(model.getArrayDouble());
             jtfMean.setText("" + mean);
 
             // Compute and set the median
-            double median = BasicStats.median(getArrayDouble(data));
+            double median = BasicStats.median(model.getArrayDouble());
             jtfMedian.setText("" + median);
         }
     });
@@ -98,16 +97,6 @@ public class BasicStatsApp {
     // Show the frame
     jfMain.setVisible(true);
 
-	}
-
-	private static double[] getArrayDouble(ArrayList<Double> doubles) {
-		double[] result = new double[doubles.size()];
-
-		for (int i = 0 ; i < doubles.size(); i++) {
-			result[i] = doubles.get(i);
-		}
-
-		return result;
 	}
 
 }

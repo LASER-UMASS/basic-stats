@@ -21,3 +21,10 @@ implementation is merely intended to be used in the CS520/620 course.
 ### How to clean up (from Terminal):
 
 1. Run `ant clean` to clean the project (i.e., delete all generated files).
+
+Program features:
+
+* Displays a set of entered numbers.
+* Computes the mean of the set of numbers.
+* Computes the median of the set of numbers.
+    

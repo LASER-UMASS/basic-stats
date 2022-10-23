@@ -1,3 +1,5 @@
+import gui.BasicStatsGUI;
+
 public class BasicStatsApp {
     
     public static void main(String ... args) {

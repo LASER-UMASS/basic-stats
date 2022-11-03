@@ -1,6 +1,8 @@
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+import gui.BasicStats;
+
 public class BasicStatsTest {
     private static double EPS = 1e-9;
 

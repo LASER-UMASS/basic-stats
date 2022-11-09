@@ -25,6 +25,9 @@ implementation is merely intended to be used in the CS520/620 course.
 Program features:
 
 * Displays a set of entered numbers.
+* Displays the count of the set of entered numbers.
 * Computes the mean of the set of numbers.
 * Computes the median of the set of numbers.
+* Computes the mode of the set of numbers.
+* Resets the application state to display no numbers and clear all values.
     

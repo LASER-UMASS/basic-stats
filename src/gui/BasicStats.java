@@ -13,6 +13,9 @@ public class BasicStats {
 
     /**
      * Compute the mean of an array of numbers.
+     * 
+     * @param numbers An array of doubles that contains the list of numbers
+     * @return The mean of all the numbers provided
      */
     public static double mean(double ... numbers) {
         double sum = 0;
@@ -24,6 +27,9 @@ public class BasicStats {
 
     /**
      * Compute the median of an array of numbers.
+     * 
+     * @param numbers An array of doubles that contains the list of numbers
+     * @return The median of all the numbers provided
      */
     public static double median(double ... numbers) {
       Arrays.sort(numbers);
@@ -45,6 +51,9 @@ public class BasicStats {
 
     /**
      * Compute the mode of an array of numbers.
+     * 
+     * @param numbers An array of doubles that contains the list of numbers
+     * @return The mode of all the numbers provided
      */
     public static double mode(double ... numbers) {
       double mode = 0.0;

@@ -1,11 +1,119 @@
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 import gui.BasicStats;
+import gui.BasicStatsGUI;
+import model.BasicStatsModel;
 
 public class BasicStatsTest {
     private static double EPS = 1e-9;
 
+    /* The test fixture */
+    private BasicStatsModel model;
+    private BasicStatsGUI gui;
+
+    @Before
+    public void setUp() {
+	this.model = new BasicStatsModel();
+	this.gui = new BasicStatsGUI();
+    }
+
+    @After
+    public void tearDown() {
+	this.model = null;
+	this.gui = null;
+    }
+    
+    @Test(expected=IllegalArgumentException.class)
+    public void testModelAddNumberInputValidationFails() {
+	// Perform setup and check pre-conditions
+	Double nullNumber = null;
+	assertNotNull(model);
+	assertEquals(0, model.getArrayDouble().length);
+	assertNull(nullNumber);
+	// Call the unit under test
+	this.model.addNumber(nullNumber);
+	// Check the post-conditions (see @Test)
+    }
+
+    protected void checkModelAddNumberPostconditions(double number) {
+	assertNotNull(model);
+	double[] modelData = model.getArrayDouble();
+	assertEquals(1, modelData.length);
+	assertEquals(number, modelData[0], EPS);	
+    }
+    
+    @Test
+    public void testModelAddNumberInputValidationSucceeds() {
+	// Perform setup and check pre-conditions
+	double number = 1.0;
+	assertNotNull(model);
+	assertEquals(0, model.getArrayDouble().length);
+	assertNotNull(number);
+	// Call the unit under test
+	model.addNumber(number);
+	// Check the post-conditions
+	checkModelAddNumberPostconditions(number);
+    }
+
+    @Test
+    public void testModelReset() {
+	// Perform setup and check pre-conditions
+	double number = 1.0;
+	assertNotNull(model);
+	assertNotNull(number);
+	model.addNumber(number);
+	checkModelAddNumberPostconditions(number);
+	// Call the unit under test
+	model.reset();
+	// Check the post-conditions
+	assertNotNull(model);
+	assertEquals(0, model.getArrayDouble().length);
+    }
+
+    protected void checkViewInitialPostconditions() {
+	assertNotNull(gui);
+	List<String> expected = new ArrayList<String>();
+	for (int i = 0; i < gui.numberOfViews(); i++) {
+	    expected.add("");
+	}
+	assertEquals(expected.toString(), gui.getStringValue());
+    }
+    
+    @Test
+    public void testViewInitialConfiguration() {
+	// Perform setup and pre-condition checks
+	// (Since this is a constructor there is none.)
+	// Call the unit under test (see @Before)
+	// Check the post-conditions
+	checkViewInitialPostconditions();
+    }
+
+    @Test
+    public void testViewResetConfiguration() {
+	// Perform setup and pre-condition checks
+	double num = 3.0;
+	gui.addNumber(num);
+	double[] modelData = gui.getArrayDouble();
+	List<String> expected = new ArrayList<String>();
+	expected.add("" + modelData.length);
+	expected.add("" + BasicStats.mean(modelData));
+	expected.add("" + BasicStats.median(modelData));
+	expected.add("" + BasicStats.maximum(modelData));
+	expected.add("" + num + ",");
+	expected.add("");
+	assertEquals(expected.toString(), gui.getStringValue());
+	// Call the unit under test
+	gui.reset();
+	// Check the post-conditions
+	checkViewInitialPostconditions();
+    }
+    
     @Test
     public void testCentralTendency() {
         double[] numbers = {2, 2, 3, 3, 3, 4, 4};
@@ -16,6 +124,51 @@ public class BasicStatsTest {
         double mode   = BasicStats.mode(numbers);
         assertEquals (3, mode, EPS);
     }
+
+    @Test(expected=IllegalArgumentException.class)
+    public void testMaximumInputValidationFails1() {
+	// Perform setup and check pre-conditions
+	double[] nullNumbers = null;
+	assertNull(nullNumbers);
+	// Call the unit under test
+	BasicStats.maximum(nullNumbers);
+	// Check the post-conditions (see @Test)
+    }
+
+    @Test(expected=IllegalArgumentException.class)
+    public void testMaximumInputValidationFails2() {
+	// Perform setup and check pre-conditions
+	double[] emptyNumbers = {};
+	assertNotNull(emptyNumbers);
+	assertEquals(0, emptyNumbers.length);
+	// Call the unit under test
+	BasicStats.maximum(emptyNumbers);
+	// Check the post-conditions (see @Test)
+    }
+
+    @Test
+    public void testMaximumInputValidationSucceeds1() {
+	// Perform setup and check pre-conditions
+	double[] numbers = { 1.0, 1.0, 2.0, 3.0, 5.0, 8.0, 13.0 };
+	assertNotNull(numbers);
+	assertTrue(numbers.length > 0);
+	// Call the unit under test
+	double actual = BasicStats.maximum(numbers);
+	// Check the post-conditions
+	assertEquals(numbers[numbers.length - 1], actual, EPS);
+    }
+
+    @Test
+    public void testMaximumInputValidationSucceeds2() {
+	// Perform setup and check pre-conditions
+	double[] numbers = { 13.0, 8.0, 5.0, 3.0, 2.0, 1.0 };
+	assertNotNull(numbers);
+	assertTrue(numbers.length > 0);
+	// Call the unit under test
+	double actual = BasicStats.maximum(numbers);
+	// Check the post-conditions
+	assertEquals(numbers[0], actual, EPS);
+    }    
 
     @Test
     public void testMedian() {

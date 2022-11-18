@@ -24,6 +24,8 @@ public class BasicStatsGUI implements View
     public static final String APP_TITLE = "Simple stats";
     
     private static BasicStatsModel model = new BasicStatsModel();
+    /** The 'Add number' view/controller allows the user to input a number */
+    private JTextField jtfNumber;
     private JTextField jtfCount;
     private JTextField jtfMedian;
     private JTextField jtfMean;
@@ -71,7 +73,7 @@ public class BasicStatsGUI implements View
 		    update(model);
 		}
 	    });
-	JTextField jtfNumber = new JTextField(5);
+	jtfNumber = new JTextField(5);
 	JButton jbAdd = new JButton("Add number");
 	jbAdd.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
@@ -98,6 +100,7 @@ public class BasicStatsGUI implements View
 	    jtfCount.setText("");
 	    jtfMedian.setText("");
 	    jtfMean.setText("");
+	    jtfNumber.setText("");
 	}
 	else {
 	    // Update the displayed list of numbers

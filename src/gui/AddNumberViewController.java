@@ -47,4 +47,10 @@ public class AddNumberViewController implements View
 	    jtfNumber.setText("");
 	}
     }
+
+    public String getStringValue() {	
+	// This is a snapshot of the current value to support
+	// testability and debuggability without breaking the encapsulation.
+	return jtfNumber.getText();
+    }
 }

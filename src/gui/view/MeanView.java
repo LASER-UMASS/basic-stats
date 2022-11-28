@@ -36,4 +36,10 @@ public class MeanView implements View
 	    jtfMean.setText("" + mean);
 	}
     }
+
+    public String getStringValue() {
+	// This is a snapshot of the current value to support
+	// testability and debuggability without breaking the encapsulation.
+	return jtfMean.getText();
+    }
 }

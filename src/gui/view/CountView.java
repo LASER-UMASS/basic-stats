@@ -35,4 +35,10 @@ public class CountView implements View
 	    this.jtfCount.setText("" + count);
 	}
     }
+
+    public String getStringValue() {
+	// This is a snapshot of the current value to support
+	// testability and debuggability without breaking the encapsulation.
+	return jtfCount.getText();
+    }
 }

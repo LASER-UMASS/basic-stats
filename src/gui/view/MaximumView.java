@@ -36,4 +36,10 @@ public class MaximumView implements View
 	    jtfMaximum.setText("" + maximum);
 	}
     }
+
+    public String getStringValue() {
+	// This is a snapshot of the current value to support
+	// testability and debuggability without breaking the encapsulation.
+	return jtfMaximum.getText();
+    }
 }

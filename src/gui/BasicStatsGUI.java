@@ -7,6 +7,11 @@ import java.awt.*;
 import java.awt.event.*;
 
 import model.BasicStatsModel;
+import gui.view.CountView;
+import gui.view.MeanView;
+import gui.view.MedianView;
+import gui.view.MaximumView;
+import gui.view.NumbersView;
 import gui.view.View;
 
 
@@ -24,12 +29,8 @@ public class BasicStatsGUI implements View
     public static final String APP_TITLE = "Simple stats";
     
     private static BasicStatsModel model = new BasicStatsModel();
-    /** The 'Add number' view/controller allows the user to input a number */
-    private JTextField jtfNumber;
-    private JTextField jtfCount;
-    private JTextField jtfMedian;
-    private JTextField jtfMean;
-    private JTextArea jtaNumbers;
+    /** The GUI is applying the Composite design pattern */
+    private java.util.List<View> views = new ArrayList<View>();
     private JFrame jfMain = new JFrame(APP_TITLE);
 
     public BasicStatsGUI() {	
@@ -40,85 +41,93 @@ public class BasicStatsGUI implements View
 	
 	// Panel that shows stats about the numbers
 	JPanel jpStats = new JPanel(new FlowLayout(FlowLayout.CENTER));
-	jtfCount = new JTextField(5);
-	jtfCount.setEditable(false);
-	jtfMedian = new JTextField(5);
-	jtfMedian.setEditable(false);
-	jtfMean = new JTextField(5);
-	jtfMean.setEditable(false);
-	jpStats.add(new JLabel("Numbers:"));
-	jpStats.add(jtfCount);
-	jpStats.add(new JLabel("Median:"));
-	jpStats.add(jtfMedian);
-	jpStats.add(new JLabel("Mean:"));
-	jpStats.add(jtfMean);
+	CountView countView = new CountView(jpStats);
+	addView(countView);
+	MedianView medianView = new MedianView(jpStats);
+	addView(medianView);
+	MeanView meanView = new MeanView(jpStats);
+	addView(meanView);
+	MaximumView maximumView = new MaximumView(jpStats);
+	addView(maximumView);
 	jfMain.getContentPane().add(jpStats, BorderLayout.CENTER);
 	
 	// TextArea that shows all the numbers
-	jtaNumbers = new JTextArea(10,50);
-	jtaNumbers.setEditable(false);
-	jfMain.getContentPane().add(jtaNumbers, BorderLayout.SOUTH);
-	
+	NumbersView numbersView = new NumbersView(jfMain);
+	addView(numbersView);
 	
 	// Panel with a text field/button to enter numbers and a button to reset the application
+	JPanel jpInput = new JPanel(new FlowLayout(FlowLayout.CENTER));
+
+	AddNumberViewController addNumberViewController = new AddNumberViewController(this, jpInput);
+	addView(addNumberViewController);
+	
 	JButton jbReset = new JButton("Reset");
 	jbReset.addActionListener(new ActionListener() {
 		// The interface ActionListener defines a call-back method actionPerformed,
 		// which is invoked if the user interacts with the GUI component -- in this
 		// case, if the user clicks the button.
 		public void actionPerformed(ActionEvent e) {
-		    // Clear the ArrayList and all text fields
-		    model.reset();
-
-		    update(model);
+		    reset();
 		}
 	    });
-	jtfNumber = new JTextField(5);
-	JButton jbAdd = new JButton("Add number");
-	jbAdd.addActionListener(new ActionListener() {
-		public void actionPerformed(ActionEvent e) {
-		    // Parse input and add number to the ArrayList
-		    
-		    Double num = Double.parseDouble(jtfNumber.getText());
-		    model.addNumber(num);
-
-		    update(model);
-		}
-	    });
-	JPanel jpInput = new JPanel(new FlowLayout(FlowLayout.CENTER));
-	jpInput.add(jtfNumber);
-	jpInput.add(jbAdd);
 	jpInput.add(jbReset);
 	
 	
 	jfMain.getContentPane().add(jpInput, BorderLayout.NORTH);
     }
 
+    public double[] getArrayDouble() {
+	return model.getArrayDouble();
+    }
+    
+    public void addView(View view) {
+	// For the Composite design pattern, add a non-null component
+	if (view != null) {
+	    views.add(view);
+	}
+    }
+
+    public void removeView(View view) {
+	// For the Composite design pattern, remove a non-null component
+	if (view != null) {
+	    views.remove(view);
+	}
+    }
+
+    public int numberOfViews() {
+	// This supports testability.
+	return views.size();
+    }
+
+    public void addNumber(double num) {
+	model.addNumber(num);
+
+	update(model);
+    }
+    
+    public void reset() {
+	// Clear the ArrayList and all text fields
+	model.reset();
+	
+	update(model);
+    }
+
     public void update(BasicStatsModel model) {
-	if (model.getArrayDouble().length == 0) {
-	    jtaNumbers.setText("");
-	    jtfCount.setText("");
-	    jtfMedian.setText("");
-	    jtfMean.setText("");
-	    jtfNumber.setText("");
+	// For the Composite design pattern, iterate calling each non-null component.
+	for (View currentView : views) {
+	    currentView.update(model);
 	}
-	else {
-	    // Update the displayed list of numbers
-	    double num = model.getArrayDouble()[model.getArrayDouble().length - 1];
-	    jtaNumbers.append(num + ",");
-	    
-	    // Compute and set the count
-	    int count = model.getArrayDouble().length;
-	    jtfCount.setText("" + count);
-	    
-	    // Compute and set the mean
-	    double mean = BasicStats.mean(model.getArrayDouble());
-	    jtfMean.setText("" + mean);
-	    
-	    // Compute and set the median
-	    double median = BasicStats.median(model.getArrayDouble());
-	    jtfMedian.setText("" + median);	    
+    }
+
+    public String getStringValue() {
+	java.util.List<String> stringValueList = new ArrayList<String>();
+
+	// Iterate calling each non-null component
+	for (View currentView : views) {
+	    stringValueList.add(currentView.getStringValue());
 	}
+
+	return stringValueList.toString();
     }
 
     public void show() {

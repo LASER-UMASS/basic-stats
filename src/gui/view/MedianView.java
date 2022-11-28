@@ -36,4 +36,10 @@ public class MedianView implements View
 	    jtfMedian.setText("" + median);
 	}
     }
+
+    public String getStringValue() {
+	// This is a snapshot of the current value to support
+	// testability and debuggability without breaking the encapsulation.
+	return jtfMedian.getText();
+    }
 }

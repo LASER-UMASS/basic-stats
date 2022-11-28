@@ -12,6 +12,29 @@ public class BasicStats {
     }
 
     /**
+     * Computes the maximum of a given array of numbers.
+     *
+     * @return The maximum value in the given array of numbers
+     *
+     * @throws IllegalArgumentException if the given array of numbers is null or empty
+     */
+    public static double maximum(double ... numbers) {
+	// Perform input validation (with pre-condition checks)
+	if ((numbers == null) || (numbers.length == 0)) {
+	    throw new IllegalArgumentException("The given array of numbers must be non-null and non-empty.");
+	}
+
+	double maximumValue = numbers[0];
+	for (int i = 1; i < numbers.length; i++) {
+	    if (numbers[i] > maximumValue) {
+		maximumValue = numbers[i];
+	    }
+	} // end for i
+
+	return maximumValue;
+    }    
+
+    /**
      * Compute the mean of an array of numbers.
      */
     public static double mean(double ... numbers) {

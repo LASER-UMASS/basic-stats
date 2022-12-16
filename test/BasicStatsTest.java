@@ -102,8 +102,8 @@ public class BasicStatsTest {
 	double[] modelData = gui.getArrayDouble();
 	List<String> expected = new ArrayList<String>();
 	expected.add("" + modelData.length);
-	expected.add("" + BasicStats.mean(modelData));
 	expected.add("" + BasicStats.median(modelData));
+	expected.add("" + BasicStats.mean(modelData));
 	expected.add("" + BasicStats.maximum(modelData));
 	expected.add("" + num + ",");
 	expected.add("");

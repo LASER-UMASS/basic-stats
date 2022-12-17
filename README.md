@@ -25,6 +25,7 @@ implementation is merely intended to be used in the CS520/620 course.
 Program features:
 
 * Displays a set of entered numbers.
+* Allows undo of the last number entered if there is at least one number. Disallows undo if there are no numbers.
 * Computes the mean of the set of numbers.
 * Computes the median of the set of numbers.
-* Computes the maximum of the set of numbers.    
+* Computes the maximum of the set of numbers.

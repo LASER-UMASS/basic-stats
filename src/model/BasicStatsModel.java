@@ -36,6 +36,23 @@ public class BasicStatsModel
     }
 
     /**
+     * Supports undo for the last number added.
+     *
+     * Post-conditions: 
+     *   If the list of numbers is empty, throws an UnsupportedOperationException.
+     *   If the list of numbers is not empty, removes the last number.
+     */
+    public void undo() throws UnsupportedOperationException
+    {
+	if (this.data.isEmpty()) {
+	    throw new UnsupportedOperationException("The list of numbers is empty and therefore undo is not allowed.");
+	}
+
+	int lastNumberIndex = this.data.size() - 1;
+	this.data.remove(lastNumberIndex);
+    }
+
+    /**
      * Resets the list of numbers.
      *
      * Post-condition: The list of numbers is empty.

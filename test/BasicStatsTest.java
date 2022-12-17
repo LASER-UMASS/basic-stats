@@ -8,6 +8,7 @@ import static org.junit.Assert.*;
 
 import gui.BasicStats;
 import gui.BasicStatsGUI;
+import gui.UndoViewController;
 import model.BasicStatsModel;
 
 public class BasicStatsTest {
@@ -79,9 +80,10 @@ public class BasicStatsTest {
     protected void checkViewInitialPostconditions() {
 	assertNotNull(gui);
 	List<String> expected = new ArrayList<String>();
-	for (int i = 0; i < gui.numberOfViews(); i++) {
+	for (int i = 0; i < gui.numberOfViews() - 1; i++) {
 	    expected.add("");
 	}
+	expected.add(UndoViewController.UNDO_DISALLOWED);
 	assertEquals(expected.toString(), gui.getStringValue());
     }
     
@@ -105,8 +107,9 @@ public class BasicStatsTest {
 	expected.add("" + BasicStats.median(modelData));
 	expected.add("" + BasicStats.mean(modelData));
 	expected.add("" + BasicStats.maximum(modelData));
-	expected.add("" + num + ",");
+	expected.add("" + num);
 	expected.add("");
+	expected.add(UndoViewController.UNDO_ALLOWED);
 	assertEquals(expected.toString(), gui.getStringValue());
 	// Call the unit under test
 	gui.reset();

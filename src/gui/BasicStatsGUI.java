@@ -28,7 +28,7 @@ public class BasicStatsGUI implements View
 {
     public static final String APP_TITLE = "Simple stats";
     
-    private static BasicStatsModel model = new BasicStatsModel();
+    private BasicStatsModel model = new BasicStatsModel();
     /** The GUI is applying the Composite design pattern */
     private java.util.List<View> views = new ArrayList<View>();
     private JFrame jfMain = new JFrame(APP_TITLE);
@@ -60,6 +60,9 @@ public class BasicStatsGUI implements View
 
 	AddNumberViewController addNumberViewController = new AddNumberViewController(this, jpInput);
 	addView(addNumberViewController);
+
+	UndoViewController undoViewController = new UndoViewController(this, jpInput);
+	addView(undoViewController);
 	
 	JButton jbReset = new JButton("Reset");
 	jbReset.addActionListener(new ActionListener() {
@@ -99,8 +102,20 @@ public class BasicStatsGUI implements View
 	return views.size();
     }
 
+    private void updateUndoButton() {
+
+    }
+
     public void addNumber(double num) {
 	model.addNumber(num);
+
+	update(model);
+    }
+
+    public void undo() throws UnsupportedOperationException
+    {
+	// Remove the last number added if it is currently allowed
+	model.undo();
 
 	update(model);
     }

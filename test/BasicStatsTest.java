@@ -113,7 +113,7 @@ public class BasicStatsTest {
 	gui.addNumber(num);
 	double[] modelData = gui.getArrayDouble();
 	List<String> expected = new ArrayList<String>();
-	expected.add("" + modelData.length);
+	expected.add("" + (double)modelData.length);
 	expected.add("" + BasicStats.median(modelData));
 	expected.add("" + BasicStats.mean(modelData));
 	expected.add("" + BasicStats.maximum(modelData));

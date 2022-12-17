@@ -96,8 +96,18 @@ public class BasicStatsTest {
 	checkViewInitialPostconditions();
     }
 
-    @Test
-    public void testViewResetConfiguration() {
+    @Test(expected=UnsupportedOperationException.class)
+    public void testViewUndoDisallowed() {
+	// Perform setup and pre-condition checks
+	//   Setup in @Before
+	//   Check the pre-conditions
+	checkViewInitialPostconditions();
+	// Call the unit under test
+	gui.undo();
+	// Check the post-conditions (see @Test)
+    }
+
+    private void setupAndCheckViewPreconditions() {
 	// Perform setup and pre-condition checks
 	double num = 3.0;
 	gui.addNumber(num);
@@ -111,6 +121,20 @@ public class BasicStatsTest {
 	expected.add("");
 	expected.add(UndoViewController.UNDO_ALLOWED);
 	assertEquals(expected.toString(), gui.getStringValue());
+    }
+    
+    @Test
+    public void testViewUndoAllowed() {
+	setupAndCheckViewPreconditions();
+	// Call the unit under test
+	gui.undo();
+	// Check the post-conditions
+	checkViewInitialPostconditions();
+    }
+
+    @Test
+    public void testViewResetConfiguration() {
+	setupAndCheckViewPreconditions();
 	// Call the unit under test
 	gui.reset();
 	// Check the post-conditions

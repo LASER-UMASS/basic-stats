@@ -7,11 +7,12 @@ import java.awt.*;
 import java.awt.event.*;
 
 import model.BasicStatsModel;
-import gui.view.CountView;
-import gui.view.MeanView;
-import gui.view.MedianView;
-import gui.view.MaximumView;
+import gui.view.CountComputeStrategy;
+import gui.view.MeanComputeStrategy;
+import gui.view.MedianComputeStrategy;
+import gui.view.MaximumComputeStrategy;
 import gui.view.NumbersView;
+import gui.view.SimpleStatView;
 import gui.view.View;
 
 
@@ -41,13 +42,13 @@ public class BasicStatsGUI implements View
 	
 	// Panel that shows stats about the numbers
 	JPanel jpStats = new JPanel(new FlowLayout(FlowLayout.CENTER));
-	CountView countView = new CountView(jpStats);
+	SimpleStatView countView = new SimpleStatView(jpStats, new CountComputeStrategy());
 	addView(countView);
-	MedianView medianView = new MedianView(jpStats);
+	SimpleStatView medianView = new SimpleStatView(jpStats, new MedianComputeStrategy());
 	addView(medianView);
-	MeanView meanView = new MeanView(jpStats);
+	SimpleStatView meanView = new SimpleStatView(jpStats, new MeanComputeStrategy());
 	addView(meanView);
-	MaximumView maximumView = new MaximumView(jpStats);
+	SimpleStatView maximumView = new SimpleStatView(jpStats, new MaximumComputeStrategy());
 	addView(maximumView);
 	jfMain.getContentPane().add(jpStats, BorderLayout.CENTER);
 	

@@ -37,10 +37,7 @@ public class AddNumberViewController implements View
     }
 
     public void update(BasicStatsModel model) {
-	// Reset
-	if (model.getArrayDouble().length == 0) {
-	    jtfNumber.setText("");
-	}
+	jtfNumber.setText("");
     }
 
     public String getStringValue() {	

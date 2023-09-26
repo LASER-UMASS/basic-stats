@@ -4,7 +4,8 @@ By Patrick Walsh, Matthew Lips
 Link to our repository: https://github.com/pw42020/ie1-basic-stats
 
 ---
-### Questions
+## Questions
+### Question 1
 1. In the basic-stats folder in the main (previously called master) branch, how many commits does the README.md file have?
 
 After checking out [the history of the README.md file on GitHub](https://github.com/pw42020/ie1-basic-stats/commits/master/README.md), it is clear that there are 16 total commits in main/master for the README.md file.
@@ -29,3 +30,20 @@ total commits.
 
 5. List the files modified in the commit with the hash `01da475`.
 
+By taking a look at the [commit page on GitHub](https://github.com/LASER-UMASS/basic-stats/commit/01da475b0395fa18b773e68b93721dae4caf651b) for the hash `01da475`, we find that
+- src/Models/Model.java
+- src/Models/Numbers.java
+- src/Views/AddNumView.java
+- src/Views/MeanView.java
+- src/Views/MedianView.java
+- src/Views/ModeView.java
+- src/Views/NumbersView.java
+- and src/Views/ResetView.java
+
+were all updated in this commit.
+
+6. What is the most recent commit in the main branch?
+
+The most recent commit in the main branch is hash `da90e878188c6de8870581bdb447299821d7e87b` that is labelled "Updated README.md" on October 31st, 2017.
+
+### Question 2

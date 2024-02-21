@@ -12,4 +12,22 @@ src/Views/MedianView.java
 src/Views/ModeView.java
 src/Views/NumbersView.java
 src/Views/ResetView.java
-6. The most recent commit in the main branch is da90e87
+d. The most recent commit to the main branch is da90e87
+
+2. 
+Steps to add MinMaxCalculation.java file
+  Change to branch master: git branch master
+  First create the file: touch MinMaxCalculation.java
+  Edit and save the file to add the code
+  Stage the change: git add MinMaxCalculation.java
+  Commit the changes: git commit -m "add MinMaxCalculation"
+  Pull any new remote commit: git pull
+  Resolve any conflicts
+  Git push the commits: git push 
+In the context of collaborative development, merge should be done locally and if possible on another branch to keep the master branch clean. This is to keep the conflict resolve process separated from the code development.
+Then it can be merge back into the master branch. Everythings commits or conflict resolved should be commented clearly to allow for others to understand the work you are doing.
+There should be a commit and branch naming conventions that everyone in the team adheres to to keep the git history clean and well organized. It would make searching for a specific commit easier.
+For example, commit and branches could be something like [actions/description] with actions being the goal of the commit or the branch like development or bug fixing, 
+and description is to provide an overall view of the commit or branch.
+We can also use .gitignore file to ignore certain files during your commit so changes to those files will not be recorded. This could be useful in the case of 
+environment files that should not be public or build files of the project. 

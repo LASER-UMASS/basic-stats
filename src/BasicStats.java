@@ -31,6 +31,8 @@ public class BasicStats {
     NumbersView numbersView = new NumbersView();
     AddNumView addNumView = new AddNumView();
     ResetView resetView = new ResetView();
+    MinView minView = new MinView();
+    maxView maxView = new maxView();
 
     //Create statsView
     ArrayList<View> statsViews = new ArrayList<View>();
@@ -38,6 +40,8 @@ public class BasicStats {
     statsViews.add(medianView);
     statsViews.add(meanView);
     statsViews.add(modeView);
+    statsViews.add(minView);
+    statsViews.add(maxView);
 
     /***** REGISTER MVC BLOCK *****/
 
@@ -151,6 +155,27 @@ public class BasicStats {
 
       return mode;
     }
+
+     /**
+     * Compute the min Value of an array of numbers.
+     */
+    public static double min(double ... numbers){
+      bubbleSort(numbers);
+   
+    // Implemented inbuilt function to sort array
+      return numbers[0];
+    }
+
+    /**
+     * Compute the max Value of an array of numbers.
+     */
+    public static double max(double ... numbers){
+      bubbleSort(numbers);
+      return numbers[numbers.length-1];
+    }
+
+
+    
 
     //Helper method
     public static void bubbleSort(double[] numArray) {

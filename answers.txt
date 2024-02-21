@@ -1,0 +1,15 @@
+1. Querying
+a. In the basic-stats folder in the main (previously called master) branch, there are 16 commits.
+b. For the README.md file, the set of the different authors of its commits is (René Just (rjust), Yuroy Brun, DeveloperTommy)
+c. The hash commit that started mentioning the ant tool is e0ca8e1
+d. The number of commits that have been made in the repository across all branches is 83
+e. All the file that was modified in hash 01da475 were:
+src/Models/Model.java
+src/Models/Numbers.java
+src/Views/AddNumView.java
+src/Views/MeanView.java
+src/Views/MedianView.java
+src/Views/ModeView.java
+src/Views/NumbersView.java
+src/Views/ResetView.java
+6. The most recent commit in the main branch is da90e87

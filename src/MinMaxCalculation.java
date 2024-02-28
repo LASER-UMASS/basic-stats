@@ -9,8 +9,7 @@ public class MinMaxCalculation {
         for (int i = 1; i < numbers.length; i++) {
             if (numbers[i] < min) {
                 min = numbers[i];
-            }
-            if (numbers[i] > max) {
+            } else if (numbers[i] > max) {
                 max = numbers[i];
             }
         }

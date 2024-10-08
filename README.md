@@ -1,3 +1,6 @@
+#Editing the 2nd time after git reset.
+#Editing README.md file for reset exercise.
+
 # Basic Statistics
 
 Basic Statistics is a Java-based implementation for computing statistics on a set of numbers.

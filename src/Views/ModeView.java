@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-import java.util.Collections;
 
 import javax.swing.JTextField;
 import javax.swing.text.JTextComponent;
